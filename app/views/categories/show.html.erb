@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Наименование:</b>
+  <%= @category.name %>
+</p>
+
+
+<%= link_to 'Ред-ть', edit_category_path(@category) %> |
+<%= link_to 'К списку', categories_path %>

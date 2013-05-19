@@ -1,0 +1,5 @@
+<% if @user.nil? %>
+	<span class="leftspace1"><%=link_to 'Войти', signIn_path %></span>
+<% else %>
+	<span class="leftspace1">Вы вошли как: <%=@user.name%><%=AuthHelper.admin_title @user.is_admin %> <%=link_to 'Выйти', signOut_path %></span>
+<% end %>

@@ -1,0 +1,18 @@
+         root        /                              news#index
+        index        /index(.:format)               news#index
+       signIn        /signIn(.:format)              auth#sign_in
+        login        /login(.:format)               login#sign_in
+   categories GET    /categories(.:format)          categories#index
+              POST   /categories(.:format)          categories#create
+ new_category GET    /categories/new(.:format)      categories#new
+edit_category GET    /categories/:id/edit(.:format) categories#edit
+     category GET    /categories/:id(.:format)      categories#show
+              PUT    /categories/:id(.:format)      categories#update
+              DELETE /categories/:id(.:format)      categories#destroy
+   news_index GET    /news(.:format)                news#index
+              POST   /news(.:format)                news#create
+     new_news GET    /news/new(.:format)            news#new
+    edit_news GET    /news/:id/edit(.:format)       news#edit
+         news GET    /news/:id(.:format)            news#show
+              PUT    /news/:id(.:format)            news#update
+              DELETE /news/:id(.:format)            news#destroy

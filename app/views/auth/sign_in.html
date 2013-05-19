@@ -1,0 +1,26 @@
+<h1>Войти в систему</h1>
+
+<% if flash[:error] %>
+<div >
+    <%=flash[:error] %>
+</div>
+<% end %>
+
+<%= form_tag '/login' do %>
+  <table>
+  	<tr>
+  		<td>Логин</td>
+  		<td><%=text_field_tag :user %></td>
+  	</tr>
+  	<tr>
+  		<td>Пароль</td>
+  		<td><%=text_field_tag :pass %></td>
+  	</tr>
+  	<tr>
+  		<td colspan='2'><%=submit_tag 'Войти' %></td>
+  	</tr>
+  </table>
+<% end %>
+
+<%= link_to 'К списку новостей', news_index_path %>
+<%=session[:user_id] %>

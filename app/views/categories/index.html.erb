@@ -1,0 +1,25 @@
+<h1>Категории</h1>
+<hr/>
+<%= link_to 'Добавить новою', new_category_path %>
+<hr/><br/><br/>
+
+<table>
+  <tr>
+    <th>Название</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td id="category"><%= category.name %></td>
+    <td><%= link_to 'Ред-ть', edit_category_path(category) %></td>
+    <td><%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Уверены?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'К новостям', root_path %>
+

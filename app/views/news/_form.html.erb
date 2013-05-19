@@ -1,0 +1,41 @@
+<%= form_for(@news) do |f| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% @news.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Заголовок %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :Дата %><br />
+    <%= f.text_field :news_date %>
+  </div>
+  <div class="field">
+    <%= f.label 'Kраткое описание' %><br />
+    <%= f.text_area :short_text, :size=>"29x6" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Полное описание' %><br />
+    <%= f.text_area :full_text, :size=>"29x6" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Категория' %><br />
+    <%= f.select(:categories_id,options_for_select(Category.all.collect { |region| [region.name, region.id] }))%>
+  </div>
+  <div class="field">
+    <%= f.label 'Автор' %><br />
+    <%= f.select(:user_id,options_for_select(User.all.collect { |user| [user.name, user.id] }))%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p id="title">
+  <%= @news.title %>
+</p>
+
+<p id="full_text">
+  <%= @news.full_text %>
+</p>
+
+
+<p id="meta_news">
+  <%= @news.news_date.to_s(:ru_date) %>  |
+  <%= @news.user.name %>
+</p>
+
+
+<%= link_to 'К списку новостей', news_index_path %>
