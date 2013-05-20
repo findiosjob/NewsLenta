@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(:version => 20130518054226) do
   create_table "news", :force => true do |t|
     t.string   "title"
     t.datetime "news_date"
-    t.string   "short_text"
-    t.string   "full_text"
+    t.text     "short_text"
+    t.text     "full_text"
     t.integer  "user_id"
     t.integer  "categories_id"
   end

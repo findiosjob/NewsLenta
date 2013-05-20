@@ -6,7 +6,7 @@
 	</div>
 <% else %>
 	<% @filter.each do |row|%>
-		<%=link_to "#{row[1]}(#{row[2]})", news_index_path, :category_id=>row[0], :class=>"filter_link" %>
+		<%=link_to "#{row[1]}(#{row[2]})", {:controller=>"news",:action=>"index", :category_id=>row[0]}, :class=>"filter_link"  %>
 	<% end %>
 <% end %>
 

@@ -75,8 +75,13 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
-
+    begin
+      @category.destroy
+    rescue => e
+      flash[:error] = "Невозможно удалить категорию, у неё есть новости!"+e.message
+      redirect_to categories_path
+      return
+    end
     respond_to do |format|
       format.html { redirect_to categories_url }
       format.json { head :no_content }
